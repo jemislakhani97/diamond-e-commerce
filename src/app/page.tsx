@@ -93,40 +93,6 @@ function DiamondMark({ label, className }: { label: string; className?: string }
   );
 }
 
-function SiteHeader() {
-  return (
-    <header className="sticky top-0 z-40 border-b border-stone-200 bg-stone-50/90 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-        <Link href="/" className="font-serif text-xl tracking-wide text-slate-900">
-          Diamond Marketplace
-        </Link>
-        <nav className="hidden items-center gap-8 text-sm md:flex">
-          <Link href="/search" className="hover:text-amber-700">
-            Shop
-          </Link>
-          <Link href="/sell" className="hover:text-amber-700">
-            Sell inventory
-          </Link>
-          <Link href="/certifications" className="hover:text-amber-700">
-            Certifications
-          </Link>
-        </nav>
-        <div className="flex items-center gap-4 text-sm">
-          <Link href="/sign-in" className="hover:text-amber-700">
-            Sign in
-          </Link>
-          <Link
-            href="/cart"
-            className="rounded-full border border-stone-300 px-3.5 py-1.5 hover:border-slate-900"
-          >
-            Cart
-          </Link>
-        </div>
-      </div>
-    </header>
-  );
-}
-
 function Hero() {
   return (
     <section className="mx-auto max-w-7xl px-6 pt-20 pb-16">
@@ -397,42 +363,9 @@ function Faq() {
   );
 }
 
-function SiteFooter() {
-  return (
-    <footer className="mt-16 border-t border-stone-200 py-12 text-sm text-slate-500">
-      <div className="mx-auto flex max-w-7xl flex-wrap justify-between gap-6 px-6">
-        <div>
-          <div className="font-serif text-xl text-slate-900">Diamond Marketplace</div>
-          <div className="mt-2">Certified natural & lab-grown diamonds.</div>
-        </div>
-        <div className="flex flex-wrap gap-12">
-          <div className="flex flex-col gap-2">
-            <strong className="font-medium text-slate-900">Shop</strong>
-            <Link href="/search">Search</Link>
-            <Link href="/search?by=shape">By shape</Link>
-            <Link href="/search?origin=lab-grown">Lab-grown</Link>
-          </div>
-          <div className="flex flex-col gap-2">
-            <strong className="font-medium text-slate-900">Sell</strong>
-            <Link href="/sell">List inventory</Link>
-            <Link href="/dealer-access">Dealer access</Link>
-          </div>
-          <div className="flex flex-col gap-2">
-            <strong className="font-medium text-slate-900">Trust</strong>
-            <Link href="/certifications">Certifications</Link>
-            <Link href="/escrow-policy">Escrow policy</Link>
-            <Link href="/return-policy">Return policy</Link>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
 export default function Home() {
   return (
-    <div className="min-h-full flex-1 bg-stone-50 text-slate-900">
-      <SiteHeader />
+    <>
       <Hero />
       <ValuePillars />
       <ShopByShape />
@@ -441,7 +374,6 @@ export default function Home() {
       <DealerBand />
       <TrustRow />
       <Faq />
-      <SiteFooter />
-    </div>
+    </>
   );
 }

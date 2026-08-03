@@ -109,7 +109,7 @@ function SellIntakeForm() {
   return (
     <form
       className="mt-12 max-w-3xl rounded-2xl border border-stone-200 bg-white p-8"
-      action="/sell"
+      action="/api/sell"
       method="post"
     >
       <h3 className="font-serif text-xl text-slate-900">
@@ -122,14 +122,14 @@ function SellIntakeForm() {
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
         <TextField
           label="Business name"
-          name="business"
+          name="business_name"
           type="text"
           placeholder="Vale Diamonds LLC"
           autoComplete="organization"
         />
         <TextField
           label="Contact name"
-          name="contact"
+          name="contact_name"
           type="text"
           placeholder="Jane Doe"
           autoComplete="name"
@@ -150,7 +150,7 @@ function SellIntakeForm() {
           </label>
           <select
             id="volume"
-            name="volume"
+            name="monthly_volume"
             defaultValue=""
             className="mt-1 w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-sm text-slate-900 focus:border-slate-900 focus:outline-none"
           >

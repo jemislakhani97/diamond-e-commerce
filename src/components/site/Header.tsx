@@ -17,6 +17,9 @@ export function SiteHeader() {
           <Link href="/search" className="hover:text-amber-700">
             Shop
           </Link>
+          <Link href="/listings" className="hover:text-amber-700">
+            Browse
+          </Link>
           <Link href="/sell" className="hover:text-amber-700">
             Sell inventory
           </Link>

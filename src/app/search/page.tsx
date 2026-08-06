@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Search certified diamonds — Diamond Marketplace",
@@ -21,16 +22,17 @@ const SHAPES = [
 const COLORS = ["D", "E", "F", "G", "H"] as const;
 
 const RESULTS = [
-  { title: "1.02 ct Round", meta: "D · VVS1 · Excellent · GIA", price: "$8,240" },
-  { title: "1.51 ct Oval", meta: "E · VVS2 · Very good · GIA", price: "$11,900" },
-  { title: "0.91 ct Cushion", meta: "F · VS1 · Excellent · AGS", price: "$5,410" },
+  { id: "LST-1001", title: "1.02 ct Round", meta: "D · VVS1 · Excellent · GIA", price: "$8,240" },
+  { id: "LST-1002", title: "1.51 ct Oval", meta: "E · VVS2 · Very good · GIA", price: "$11,900" },
+  { id: "LST-1003", title: "0.91 ct Cushion", meta: "F · VS1 · Excellent · AGS", price: "$5,410" },
   {
+    id: "LST-1004",
     title: "2.03 ct Emerald",
     meta: "D · IF · Excellent · GIA · Lab-grown",
     price: "$9,880",
   },
-  { title: "1.20 ct Round", meta: "E · VVS1 · Excellent · GIA", price: "$10,150" },
-  { title: "1.75 ct Pear", meta: "F · VS2 · Very good · GIA", price: "$7,320" },
+  { id: "LST-1005", title: "1.20 ct Round", meta: "E · VVS1 · Excellent · GIA", price: "$10,150" },
+  { id: "LST-1006", title: "1.75 ct Pear", meta: "F · VS2 · Very good · GIA", price: "$7,320" },
 ];
 
 function DiamondMark() {
@@ -249,19 +251,23 @@ function SearchResultsGrid() {
       aria-label="Search results"
     >
       {RESULTS.map((r) => (
-        <article
-          key={r.title}
-          className="flex flex-col overflow-hidden rounded-2xl border border-stone-200 bg-white"
+        <Link
+          key={r.id}
+          href={`/listings/${r.id}`}
+          aria-label={`${r.title} — view details`}
+          className="block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-900"
         >
-          <div className="flex aspect-square items-center justify-center bg-gradient-to-br from-stone-100 to-stone-200 text-stone-400">
-            <DiamondMark />
-          </div>
-          <div className="p-4">
-            <h3 className="font-serif text-base text-slate-900">{r.title}</h3>
-            <p className="mt-1 text-xs text-slate-500">{r.meta}</p>
-            <p className="mt-2 text-sm font-semibold text-slate-900">{r.price}</p>
-          </div>
-        </article>
+          <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-stone-200 bg-white hover:border-slate-900">
+            <div className="flex aspect-square items-center justify-center bg-gradient-to-br from-stone-100 to-stone-200 text-stone-400">
+              <DiamondMark />
+            </div>
+            <div className="p-4">
+              <h3 className="font-serif text-base text-slate-900">{r.title}</h3>
+              <p className="mt-1 text-xs text-slate-500">{r.meta}</p>
+              <p className="mt-2 text-sm font-semibold text-slate-900">{r.price}</p>
+            </div>
+          </article>
+        </Link>
       ))}
     </section>
   );
